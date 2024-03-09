@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-cloud-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: service-cloud
+  template:
+    metadata:
+      labels:
+        app: service-cloud
+    spec:
+      containers:
+      - name: service-cloud
+        image: dbousquet13/image-tp:latest 
+        ports:
+        - containerPort: 3000
